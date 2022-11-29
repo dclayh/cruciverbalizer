@@ -1,0 +1,58 @@
+[tool.black]
+line-length = 120
+target-version = ['py37']
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.eggs
+    | \.git
+    | \.github
+    | \.hg
+    | \.mypy_cache
+    | \.pytest_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+  )/
+)
+'''
+
+
+[tool.poetry]
+name = "cruciverbalizer"
+version = "0.0.1"
+description = "Azure access layer for GC Data Strategy"
+authors = ["Clay Hambrick <dclayh@gmail.com>"]
+
+
+[tool.poetry.scripts]
+gen-wordlist = 'cruciverbalizer.generate_wordlist:main'
+find-word = 'cruciverbalizer.find_word:main'
+
+
+[tool.poetry.dependencies]
+python = "3.10.*"
+requests = "*"
+
+# A list of all of the optional dependencies, some of which are included in the
+# below `extras`. They can be opted into by apps.
+
+
+
+[tool.poetry.dev-dependencies]
+black = "*"
+pylint = "^2.4.4"
+pytest = "^5.1"
+
+
+[tool.poetry.extras]
+
+
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
